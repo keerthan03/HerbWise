@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Classification - Sahyadri College</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        #chatContainer {
+            display: none;
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            width: 350px;
+            height: 500px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .button-container {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            margin-top: -580px;
+            margin-right: 1000px;
+        }
+
+        .consult-button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        /* Dropdown menu styles */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <img src="/static/ico.png" alt="Sahyadri College Logo">
+    <h2>Sahyadri College of Engineering and Management</h2>
+    <h1>Medicinal Plant Detection</h1>
+    
+</header>
+<h3 class="paraaa"><strong>Connect with our healthcare bots for personalized assistance and information:</strong></h3>
+
+<head>
+    
+</head>
+
+<section class="content">
+   
+
+    <div class="form-container">
+        <h2>Upload an image</h2>
+        <form method="POST" action="/analyze" enctype="multipart/form-data" onsubmit="return validateForm()">
+            <input type="file" name="image" accept="image/*" required>
+            <button type="submit" class="blaa">Analyze</button>
+        </form>
+    </div>
+  
+    <div class="form-container">
+        <h2>Or provide an image URL</h2>
+        <form method="POST" action="/analyze">
+            <input type="text" name="img_url" placeholder="Image URL" required>
+            <button type="submit">Analyze</button>
+        </form>
+    </div>
+    <!-- ... (Previous code remains the same) -->
+
+    <div id="cameraContainer">
+        <video id="cameraStream" width="640" height="480" autoplay></video>
+        <div id="captureText"><h2><strong>Capture a Image</strong></h2></div>
+        <button id="openCameraButton" onclick="openCamera()">Open Camera</button>
+        <button id="captureButton" style="display: none;" onclick="captureImage()">Capture</button>
+        <form id="cameraForm" method="POST" action="/analyze">
+            <input type="hidden" id="capturedImageInput" name="image" accept="image/*">
+            <button id="submitImageButton" style="display: none;" type="submit">Analyze</button>
+        </form>
+    </div>
+ 
+
+    
+  
+
+</section>
+
+<div class="button-container">
+
+    <div class="dropdown">
+        <button class="consult-button">Explore Bots</button>
+        <div class="dropdown-content">
+          <a href="https://healthcare-bot1-42qatuvmezau4.azurewebsites.net" target="_blank">Growing Tips Bot</a> 
+          <a href="https://healthcare-bot1-42qatuvmezau4.azurewebsites.net" target="_blank">
+            <i class='bx bxs-message-square-dots'></i>
+          </a>
+        </div>
+    </div>
+</div>
+
+<div class="download-container">
+    <a href="https://drive.google.com/file/d/1fKm20liMiSV9nCCsnuSzlUJEQTQnbg5v/view" download>
+        <button class="download-button">Explore our Augmented Reality App</button>
+    </a>
+</div>
+<div>
+
+<h2 class="skinn">Medicinal Plant Detection</h2>
+<h2 class="skinn2"> - - - - - - - - - - - - - - - - - - </h2>
+
+
+
+
+
+
+</div>
+
+<div id="chatContainer">
+
+   
+    <iframe src="https://healthcare-bot13-3dpolqdqvugkq.azurewebsites.net/" frameborder="0" width="100%" height="100%"></iframe>
+   
+</div>
+
+
+
+<!-- Add the Web Chat Client code here -->
+<script src="https://cdn.botframework.com/botframework-webchat/latest/webchat.js"></script>
+<script>
+    function toggleChat() {
+        var chatContainer = document.getElementById("chatContainer");
+        if (chatContainer.style.display === "none") {
+            chatContainer.style.display = "block";
+        } else {
+            chatContainer.style.display = "none";
+        }
+    }
+</script>
+<script>
+    let videoStream;
+    let capturedImage = null;
+
+    function openCamera() {
+        const cameraContainer = document.getElementById("cameraContainer");
+        const openCameraButton = document.getElementById("openCameraButton");
+        const captureButton = document.getElementById("captureButton");
+        const submitImageButton = document.getElementById("submitImageButton");
+
+        navigator.mediaDevices.getUserMedia({ video: true })
+            .then(stream => {
+                videoStream = stream;
+                document.getElementById("cameraStream").srcObject = stream;
+
+                openCameraButton.style.display = "none";
+                captureButton.style.display = "block";
+                submitImageButton.style.display = "none";
+            })
+            .catch(error => {
+                console.error("Error opening camera:", error);
+            });
+    }
+
+    function captureImage() {
+        const canvas = document.createElement("canvas");
+        const videoElement = document.getElementById("cameraStream");
+        canvas.width = videoElement.videoWidth;
+        canvas.height = videoElement.videoHeight;
+
+        const context = canvas.getContext("2d");
+        context.drawImage(videoElement, 0, 0, canvas.width, canvas.height);
+
+        capturedImage = canvas.toDataURL("image/jpeg");
+        document.getElementById("capturedImageInput").value = capturedImage;
+
+        const captureButton = document.getElementById("captureButton");
+        const submitImageButton = document.getElementById("submitImageButton");
+
+        captureButton.style.display = "none";
+        submitImageButton.style.display = "block";
+    }
+</script>
+
+<script>
+    <script>
+        function validateForm() {
+            var fileInput = document.querySelector('input[type="file"]');
+            var file = fileInput.files[0];
+
+            if (file) {
+                var img = new Image();
+                img.src = URL.createObjectURL(file);
+
+                img.onload = function () {
+                    if (img.width < 224 || img.height < 224) {
+                        alert("Image resolution must be 224x224 or larger.");
+                        return false; // Prevent form submission
+                    } else {
+                        // Image is valid, allow form submission
+                        return true;
+                    }
+                };
+            }
+
+            // If no file selected, allow form submission to trigger HTML5 validation
+            return true;
+        }
+    </script>
+    <script>
+        document.getElementById("openFile2Button").addEventListener("click", function() {
+            // Open file2.html in a new tab or window
+            window.open("site.html", "_blank");
+        });
+    </script>
+
+
+</body>
+</html>
