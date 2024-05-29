@@ -1,0 +1,7 @@
+1. Please run Server.bat
+2. You can see Home Page and Image Classification page opened in 2 different tabs. 
+3. The Home Page is the UI of our project, but the actual working happens in the Image Classification Page.
+4. Upload any image in Image Classification Page and you will get the result of what Plant it is.
+
+PLease NOTE: To get the results in Home Page please select the images that are present in "Test Images" folder in this directory.
+Also, to view the AR, you need to run the Home.html using localhost. 

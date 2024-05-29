@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Martian+Mono:wght@800&family=Raleway:ital,wght@0,600;1,600&family=Ysabeau+SC:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Belanosima&display=swap');
+        body{
+            background-color: rgb(234, 234, 234);
+            @media (min-width: 500px) and (max-width: 540px) {
+                .custom-padding {
+                    padding-top: 145px;
+                    font-size: large;
+                }
+            }
+            @media (min-width: 540px) and (max-width: 559px) {
+                .custom-padding {
+                    padding-top: 150px;
+                    font-size: large;
+                }
+            }      
+            @media (min-width: 557px) and (max-width: 600px) {
+                .custom-padding {
+                    padding-top: 150px;
+                    font-size: large;
+                }
+            }   
+            @media (min-width: 600px) and (max-width:654px) {
+                .custom-padding {
+                    padding-top: 160px;
+                    font-size: large;
+                }
+            }
+            @media (min-width: 654px) and (max-width: 1075px) {
+                .custom-padding {
+                    padding-top: 110px;
+                    font-size: large;
+                }
+            }
+            @media (min-width: 1075px) {
+                .custom-padding {
+                    padding-top: 50px;
+                    font-size: large;
+                }
+            }
+              
+        }
+        .name{
+            font-family: 'Belanosima', sans-serif, cursive; 
+            font-size: xx-large; 
+            font-weight: 700;
+        }
+        .gb:hover{
+
+            box-shadow: 0 0 0 1px #ffffff, 0 0 0 3px #a2a8a2, 0 0 0 5px #727275;;
+        }
+        .navcart{
+            font-size: 30px;
+        }
+        @media (max-width: 932px) {
+            .dropdown-menu-right {
+                right: 0 !important;
+                left: auto !important;
+            }
+        }
+        .content{
+            font-family: 'Raleway', sans-serif;
+        }
+        .oldprice{
+            color: rgb(136, 126, 126);
+        }
+        .newprice{
+            color: rgb(4, 87, 4);
+            font-size: x-large;
+            font-weight: 700;
+            font-family: 'Martian Mono', monospace;
+        }
+        .btn-card-width{
+            width: 100%;
+            font-family: 'Ysabeau SC', sans-serif;
+            font-weight: 900;
+        }
+        .counter{
+            font-family: 'Ysabeau SC', sans-serif;
+            font-weight: 900;
+        }
+        .premium{
+            color: red;
+        }
+        .banner{
+            text-decoration: none;
+            color: rgb(63, 11, 11);
+            transition: text-shadow 0.75s ease;
+        }
+        .banner:hover{
+            text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #ff7f00, 0 0 40px #ff7f00, 0 0 55px #ff7f00, 0 0 75px #ff7f00;
+            color: #ff7f00;
+            font-size: large;
+        }
+        .bannerpermanent{
+            text-decoration: none;
+            color: rgb(63, 11, 11);
+            transition: text-shadow 0.75s ease;
+            text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #ff7f00, 0 0 40px #ff7f00, 0 0 55px #ff7f00, 0 0 75px #ff7f00;
+            color: #ff7f00;
+            font-size: large;
+        }
+        .bannerpermanent:hover{
+            text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #ff7f00, 0 0 40px #ff7f00, 0 0 55px #ff7f00, 0 0 75px #ff7f00;
+            color: #ff7f00;
+            font-size: large;
+        }
+        .glow{
+            text-decoration: none;
+            color: white;
+            transition: text-shadow 0.75s ease;
+        }
+        .glow:hover{
+            text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #459724, 0 0 40px #459724, 0 0 55px #459724, 0 0 75px #459724;
+            color: white;
+        }
+        .card-header {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .zoom-image {
+            transition: transform 0.3s;
+        }
+
+        .zoom-image:hover {
+            transform: scale(1.1);
+        }
+
+        .modal{
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        .modal-content{
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            width: 500px;
+            height: 100%;
+            background-color: antiquewhite;
+        }
+        .curstyle{
+            cursor: pointer;
+        }
+        iframe{
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .spad{
+            padding-top: 7%;
+        }
+        
+        #drop-area {
+            padding-top: 25%;
+            padding-bottom: 25%;
+            border: 3px dashed #125809;
+            background-color: rgba(106, 189, 43, 0.5);
+
+            border-radius: 20px;
+            text-align: center;
+            color: #125809;
+        }
